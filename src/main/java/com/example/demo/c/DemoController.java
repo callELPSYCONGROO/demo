@@ -1,5 +1,6 @@
 package com.example.demo.c;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,7 +42,7 @@ public class DemoController {
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2d.fillRect(0, 0, 500, 500);
 		g2d.setColor(Color.RED);
-		Font font = Font.createFont(Font.TRUETYPE_FONT, ResourceUtils.getFile("classpath:font/" + f))
+		Font font = Font.createFont(Font.TRUETYPE_FONT, new ClassPathResource("classpath:font/" + f).getInputStream())
 				.deriveFont(Font.BOLD, 40);
 		g2d.setFont(font);
 		g2d.drawString(a, 100, 100);
