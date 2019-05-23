@@ -1,7 +1,6 @@
 package com.example.demo.c;
 
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +9,8 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author 無痕剑
@@ -17,6 +18,14 @@ import java.io.*;
  */
 @RestController
 public class DemoController {
+
+	@RequestMapping("/Home/DownCheck")
+	public Map<String, Object> downcheck() {
+		Map<String, Object> result = new HashMap<>();
+		result.put("status", 1);
+		result.put("file", 1);
+		return result;
+	}
 
 	@RequestMapping("/t1")
 	public String t1(@RequestParam("a") String a, @RequestParam("f") String f, @RequestParam("n") String n) {
